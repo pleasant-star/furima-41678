@@ -28,14 +28,13 @@
 | status_id   | integer    | null: false |
 | postage_id  | integer    | null: false |
 | area_id     | integer    | null: false |
-| send-day_id | integer    | null: false |
+| send_day_id | integer    | null: false |
 | price       | integer    | null: false |
 | user        | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :comments
 - has_one :purchase
 
 ## purchasesテーブル
@@ -46,20 +45,19 @@
 
 ### Association
 
-- be_longs :users
-- be_longs :items
-- has-one :address
+- belongs_to :users
+- belongs_to :items
+- has_one :address
 
 ## addressesテーブル
-| Column        | Type    | Options     |
-| ------------- | ------- | ----------- |
-| zip-code      | integer | null: false |
-| prefecture    | string  | null: false |
-| city          | string  | null: false |
-| address_line  | string  | null: false |
-| building_name | string  |             |
-| tell          | string  | null: false |
+| Column        | Type     | Options     |
+| ------------- | -------- | ----------- |
+| prefecture_id | integer  | null: false |
+| city          | string   | null: false |
+| address_line  | string   | null: false |
+| building_name | string   |             |
+| tell          | string   | null: false |
 
 ### Association
 
-- belongs :purchases
+- belongs_to :purchases
