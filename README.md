@@ -30,7 +30,7 @@
 | area_id     | integer    | null: false |
 | send_day_id | integer    | null: false |
 | price       | integer    | null: false |
-| user        | references | foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -40,8 +40,8 @@
 ## purchasesテーブル
 | Column | Type       | Options     |
 | ------ | ---------- | ----------- |
-| user   | references | null: false |
-| item   | references | null: false |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -58,7 +58,7 @@
 | address_line  | string     | null: false |
 | building_name | string     |             |
 | tell          | string     | null: false |
-| purchase      | references | foreign_key: true |
+| purchase      | references | null: false, foreign_key: true |
 
 ### Association
 
