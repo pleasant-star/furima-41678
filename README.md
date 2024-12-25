@@ -45,19 +45,21 @@
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 - has_one :address
 
 ## addressesテーブル
-| Column        | Type     | Options     |
-| ------------- | -------- | ----------- |
-| prefecture_id | integer  | null: false |
-| city          | string   | null: false |
-| address_line  | string   | null: false |
-| building_name | string   |             |
-| tell          | string   | null: false |
+| Column        | Type       | Options     |
+| ------------- | ---------- | ----------- |
+| zip_code      | string     | null: false |
+| area_id       | integer    | null: false |
+| city          | string     | null: false |
+| address_line  | string     | null: false |
+| building_name | string     |             |
+| tell          | string     | null: false |
+| purchase      | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :purchases
+- belongs_to :purchase
