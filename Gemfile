@@ -82,3 +82,7 @@ end
 gem 'active_hash'
 
 gem 'devise'
+
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+gem 'faker'
