@@ -28,19 +28,19 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password can't be blank")
       end
-      it '英字のみでは登録できない' do
+      it 'passwordが英字のみでは登録できない' do
         @user.password = 'abcdef'
         @user.password_confirmation = 'abcdef'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password must include both letters and numbers')
       end
-      it '数字のみでは登録できない' do
+      it 'passwordが数字のみでは登録できない' do
         @user.password = '123456'
         @user.password_confirmation = '123456'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password must include both letters and numbers')
       end
-      it '全角文字では登録できない' do
+      it 'passwordが全角文字では登録できない' do
         @user.password = 'ＡＢＣ１２３'
         @user.password_confirmation = 'ＡＢＣ１２３'
         @user.valid?
@@ -115,6 +115,11 @@ RSpec.describe User, type: :model do
         @user.first_name_kana = 'たろう'
         @user.valid?
         expect(@user.errors.full_messages).to include('First name kana must be in full-width katakana characters')
+      end
+      it 'birthdayが空では登録できない' do
+        @user.birthday = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Birthday can't be blank")
       end
     end
   end
