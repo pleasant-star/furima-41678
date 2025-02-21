@@ -9,7 +9,7 @@ class PurchaseAddress
     validates :address_line
     validates :tell, format: { with: /\A\d{10,11}\z/, message: 'must be 10 or 11 digits' }
     validates :user_id
-    validates :item_id
+    validates :item_id, presence: true
   end
 
   def save
