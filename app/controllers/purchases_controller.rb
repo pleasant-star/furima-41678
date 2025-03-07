@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item
+  before_action :move_to_root
 
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
@@ -29,6 +30,16 @@ class PurchasesController < ApplicationController
   def purchase_params
     params.require(:purchase_address).permit(:zip_code, :area_id, :city, :address_line, :building_name, :tell)
           .merge(user_id: current_user.id, item_id: @item.id, token: params[:token])
+  end
+
+  def move_to_root
+    if @item.present?
+      redirect_to root_path and return if current_user.id == @item.user_id
+
+      redirect_to root_path and return if @item.purchase.present?
+    else
+      redirect_to root_path and return
+    end
   end
 
   def pay_item
