@@ -1,6 +1,6 @@
 class PurchaseAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :zip_code, :area_id, :city, :address_line, :building_name, :tell
+  attr_accessor :user_id, :item_id, :zip_code, :area_id, :city, :address_line, :building_name, :tell, :token
 
   with_options presence: true do
     validates :zip_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
