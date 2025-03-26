@@ -411,7 +411,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash
-  activesupport
   aws-sdk-s3
   bootsnap
   capybara
