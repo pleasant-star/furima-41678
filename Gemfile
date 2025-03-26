@@ -97,3 +97,4 @@ gem 'gon'
 
 gem "aws-sdk-s3", require: false
 
+gem 'activesupport', '~> 7.0.7'
