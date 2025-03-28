@@ -98,3 +98,5 @@ gem 'gon'
 gem "aws-sdk-s3", require: false
 
 gem 'sprockets-rails'
+
+gem "nokogiri", force_ruby_platform: true
